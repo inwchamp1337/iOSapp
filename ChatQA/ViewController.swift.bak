@@ -1,0 +1,33 @@
+//
+//  ViewController.swift
+//  ChatQA
+//
+//  Created by Csy on 17/2/2568 BE.
+//
+import UIKit
+
+class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // ตั้งค่าพื้นหลัง View
+        view.backgroundColor = .white
+        
+        // สร้าง CustomLabel
+        let label = CustomLabel(text: "Hello, world!", fontSize: 24, textColor: .black)
+        let labelRight = CustomLabel(text: "Powered by iOS", fontSize: 12, textColor: .green)
+        // เพิ่ม CustomLabel ลงใน View
+        view.addSubview(label)
+        // ตั้งค่า Auto Layout เพื่อจัดวาง Label ไว้กลางหน้าจอ
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor), // จัดกลางแนวนอน
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)  // จัดกลางแนวตั้ง
+        ])
+        view.addSubview(labelRight)
+        NSLayoutConstraint.activate([
+           labelRight.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+           labelRight.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
+        ])
+    }
+}
+
